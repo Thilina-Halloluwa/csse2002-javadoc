@@ -1,0 +1,8 @@
+farm
+farm.core
+farm.customer
+farm.inventory
+farm.inventory.product
+farm.inventory.product.data
+farm.sales
+farm.sales.transaction
