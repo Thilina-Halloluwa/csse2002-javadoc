@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -97,7 +97,10 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BasicInventory</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Inventory.html" title="interface in farm.inventory">Inventory</a></span></div>
-<div class="block">A very basic inventory that both stores and handles products individually.</div>
+<div class="block">A very basic inventory that both stores and handles products individually.
+ <p>
+ Only supports operation on single Products at a time.
+ <p></div>
 <dl class="notes">
 <dt><span style="color:#F5D000;font-size:1.2em;">Component of Stage 2.</span></dt>
 </dl>
@@ -134,20 +137,33 @@ implements <a href="Inventory.html" title="interface in farm.inventory">Inventor
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Adds a new product with corresponding barcode to the inventory.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#existsProduct(farm.inventory.product.data.Barcode)" class="member-name-link">existsProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">addProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
+ <a href="product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality,
+ int&nbsp;quantity)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Throws an <a href="../core/InvalidStockRequestException.html" title="class in farm.core"><code>InvalidStockRequestException</code></a> with the message:</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#existsProduct(farm.inventory.product.data.Barcode)" class="member-name-link">existsProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Determines if a product exists in the inventory with the given barcode.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllProducts()" class="member-name-link">getAllProducts</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllProducts()" class="member-name-link">getAllProducts</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Retrieves the full stock currently held in the inventory.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProduct(farm.inventory.product.data.Barcode)" class="member-name-link">removeProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProduct(farm.inventory.product.data.Barcode)" class="member-name-link">removeProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Removes the first product with corresponding barcode from the inventory.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProduct(farm.inventory.product.data.Barcode,int)" class="member-name-link">removeProduct</a><wbr>(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
+ int&nbsp;quantity)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Throws an <a href="../core/FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> with the message:</div>
 </div>
 </div>
 </div>
@@ -197,6 +213,29 @@ implements <a href="Inventory.html" title="interface in farm.inventory">Inventor
 </section>
 </li>
 <li>
+<section class="detail" id="addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)">
+<h3>addProduct</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addProduct</span><wbr><span class="parameters">(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
+ <a href="product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality,
+ int&nbsp;quantity)</span>
+                throws <span class="exceptions"><a href="../core/InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></span></div>
+<div class="block">Throws an <a href="../core/InvalidStockRequestException.html" title="class in farm.core"><code>InvalidStockRequestException</code></a> with the message:
+ <p>
+ <pre style="color:#00CC00">"Current inventory is not fancy enough. Please supply products one at a time."</pre>
+ <p></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Inventory.html#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)">addProduct</a></code>&nbsp;in interface&nbsp;<code><a href="Inventory.html" title="interface in farm.inventory">Inventory</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>barcode</code> - the product type to add to the inventory.</dd>
+<dd><code>quality</code> - the quality of the product to add to the inventory.</dd>
+<dd><code>quantity</code> - the number of products to add to the inventory.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../core/InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code> - always, since Basic inventories never support quantities &gt; 1.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="existsProduct(farm.inventory.product.data.Barcode)">
 <h3>existsProduct</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">existsProduct</span><wbr><span class="parameters">(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</span></div>
@@ -225,6 +264,29 @@ implements <a href="Inventory.html" title="interface in farm.inventory">Inventor
 <dd><code>barcode</code> - The barcode of the product to be removed.</dd>
 <dt>Returns:</dt>
 <dd>A list containing the removed product if it exists, else an empty list.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeProduct(farm.inventory.product.data.Barcode,int)">
+<h3>removeProduct</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</span>&nbsp;<span class="element-name">removeProduct</span><wbr><span class="parameters">(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
+ int&nbsp;quantity)</span>
+                            throws <span class="exceptions"><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
+<div class="block">Throws an <a href="../core/FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> with the message:
+ <p>
+ <pre style="color:#00CC00">"Current inventory is not fancy enough. Please purchase products one at a time."</pre>
+ <p></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Inventory.html#removeProduct(farm.inventory.product.data.Barcode,int)">removeProduct</a></code>&nbsp;in interface&nbsp;<code><a href="Inventory.html" title="interface in farm.inventory">Inventory</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>barcode</code> - the product type to add to the inventory.</dd>
+<dd><code>quantity</code> - The total amount of the product to remove from the inventory.</dd>
+<dt>Returns:</dt>
+<dd>A list containing the removed product if it exists, else an empty list.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - always, since Basic inventories never support quantities &gt; 1.</dd>
 </dl>
 </section>
 </li>

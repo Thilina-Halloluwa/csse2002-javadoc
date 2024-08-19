@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -98,13 +98,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">CategorisedTransaction</span>
 <span class="extends-implements">extends <a href="Transaction.html" title="class in farm.sales.transaction">Transaction</a></span></div>
-<div class="block">A transaction that keeps track of what was purchased and by whom.
- <p>
- A transaction has an associated customer and thus their cart to keep track of active purchases.
- <p>
- A transaction exists in either one of two states. Finalised where it is no longer open for modification and instead represents a past sale that has been completed and receipt generated. Or active, where products can be actively added to the customer cart and the receipt is not yet ready.
- <p>
- An extension on the basic transaction, which allows products to be sorted by type within a transaction.</div>
+<div class="block">A transaction type that allows products to be categorised by their types, not solely as 
+ isolated individual products. The resulting receipt therefore displays purchased types with
+ an associated quantity purchased and subtotal, rather than a single line for each product.</div>
 <dl class="notes">
 <dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 </dl>
@@ -121,7 +117,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(farm.customer.Customer)" class="member-name-link">CategorisedTransaction</a><wbr>(<a href="../../customer/Customer.html" title="class in farm.customer">Customer</a>&nbsp;customer)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new categorised transaction for an associated customer.</div>
 </div>
 </div>
 </section>
@@ -140,28 +136,27 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPurchasedTypes()" class="member-name-link">getPurchasedTypes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves all product types associated with the transaction.</div>
+<div class="block">Retrieves all unique product types of the purchases associated with the transaction.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPurchaseQuantity(farm.inventory.product.data.Barcode)" class="member-name-link">getPurchaseQuantity</a><wbr>(<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves the number of a particular product associated with the transaction.</div>
+<div class="block">Retrieves the number of products of a particular type associated with the transaction.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../inventory/product/Product.html" title="class in farm.inventory.product">Product</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPurchasesByType()" class="member-name-link">getPurchasesByType</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves all products associated with the transaction, grouped by type.</div>
+<div class="block">Retrieves all products associated with the transaction, grouped by their type.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPurchaseSubtotal(farm.inventory.product.data.Barcode)" class="member-name-link">getPurchaseSubtotal</a><wbr>(<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Determines the total price for the provided product type, associated with the transaction.</div>
+<div class="block">Determines the total price for the provided product type within this transaction.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReceipt()" class="member-name-link">getReceipt</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">TODO: NOTES If the receipt is not finalised print active receipt <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a>
- Otherwise use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a> WHAT DO THEY PUT IN.</div>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="../ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.</div>
 </div>
 </div>
 </div>
@@ -187,7 +182,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(farm.customer.Customer)">
 <h3>CategorisedTransaction</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CategorisedTransaction</span><wbr><span class="parameters">(<a href="../../customer/Customer.html" title="class in farm.customer">Customer</a>&nbsp;customer)</span></div>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new categorised transaction for an associated customer.
+ Transactions should always be active at the time of creation, i.e. a transaction cannot 
+ already be set to finalised upon instantiation.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>customer</code> - the customer who is starting the transaction (beginning to shop).</dd>
@@ -206,10 +203,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getPurchasedTypes()">
 <h3>getPurchasedTypes</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&gt;</span>&nbsp;<span class="element-name">getPurchasedTypes</span>()</div>
-<div class="block">Retrieves all product types associated with the transaction.</div>
+<div class="block">Retrieves all unique product types of the purchases associated with the transaction.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>a list of all product types in the transaction.</dd>
+<dd>a set of all product types in the transaction.</dd>
 </dl>
 </section>
 </li>
@@ -217,11 +214,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getPurchasesByType()">
 <h3>getPurchasesByType</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../inventory/product/Product.html" title="class in farm.inventory.product">Product</a>&gt;&gt;</span>&nbsp;<span class="element-name">getPurchasesByType</span>()</div>
-<div class="block">Retrieves all products associated with the transaction, grouped by type.
- This is either everything the bought if the transaction is finalised or the products currently in their cart.</div>
+<div class="block">Retrieves all products associated with the transaction, grouped by their type.
+ <br>
+ If the transaction has been finalised, this is all products that were 'locked in' as 
+ final purchases at that time. If the transaction is instead still active, it is all products 
+ currently in the associated customer's cart.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the grouped products in the transaction.</dd>
+<dd>the products in the transaction, grouped by their type.</dd>
 </dl>
 </section>
 </li>
@@ -229,12 +229,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getPurchaseQuantity(farm.inventory.product.data.Barcode)">
 <h3>getPurchaseQuantity</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getPurchaseQuantity</span><wbr><span class="parameters">(<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</span></div>
-<div class="block">Retrieves the number of a particular product associated with the transaction.</div>
+<div class="block">Retrieves the number of products of a particular type associated with the transaction.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - the product type.</dd>
 <dt>Returns:</dt>
-<dd>the number of the product associated with the transaction.</dd>
+<dd>the number of products of the specified type associated with the transaction.</dd>
 </dl>
 </section>
 </li>
@@ -242,12 +242,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getPurchaseSubtotal(farm.inventory.product.data.Barcode)">
 <h3>getPurchaseSubtotal</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getPurchaseSubtotal</span><wbr><span class="parameters">(<a href="../../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</span></div>
-<div class="block">Determines the total price for the provided product type, associated with the transaction.</div>
+<div class="block">Determines the total price for the provided product type within this transaction.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - the product type.</dd>
 <dt>Returns:</dt>
-<dd>the total price for all instances of that product type associated with the transaction.</dd>
+<dd>the total price for all instances of that product type within the transaction, or
+ 0 if no items of that type are associated with the transaction.</dd>
 </dl>
 </section>
 </li>
@@ -255,14 +256,73 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getReceipt()">
 <h3>getReceipt</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getReceipt</span>()</div>
-<div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="Transaction.html#getReceipt()">Transaction</a></code></span></div>
-<div class="block">TODO: NOTES If the receipt is not finalised print active receipt <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a>
- Otherwise use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a> WHAT DO THEY PUT IN. HOW IS IT USED LOL?</div>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="../ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.
+ <p>
+ If the transaction has not been finalised, an accurate receipt cannot be printed; use
+ <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a> to create an empty receipt reporting this.
+ <p>
+ Otherwise, use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a>. 
+ The displayed transaction must match the following requirements:
+ <ul>
+     <li>The headings must be "Item", "Qty", "Price (ea.)", and "Subtotal", in that order.</li>
+     <li>Each entry must be a list containing the identifier of a product type, the number of 
+     products of that type purchased, the price per item for that type, and the subtotal for that type.</li>
+     <li>The entries in the list should appear in the order matching that of <a href="../../inventory/product/data/Barcode.html#values()"><code>Barcode.values()</code></a>. Product types for which no items were purchased should not be
+     included.</li>
+     <li>All prices shown on the receipt – that is, both prices per product and the
+     overall total - must be styled in standard price format rather
+     than as cents, e.g. 157c becomes $1.57.</li>
+ </ul>
+ <pre>
+ <code>
+ Customer jack = new Customer("Jack", 01234567, "1st Street");
+
+ jack.getCart().addProduct(new Egg());
+ jack.getCart().addProduct(new Milk());
+ jack.getCart().addProduct(new Jam());
+ jack.getCart().addProduct(new Egg());
+ jack.getCart().addProduct(new Milk());
+ jack.getCart().addProduct(new Egg());
+
+ Transaction transaction = new CategorisedTransaction(jack);
+ transaction.finalise();
+
+ System.out.println(transaction.getReceipt());
+ </code>
+ </pre>    
+ <pre style="color:#00CC00">
+ ================================================
+                The CSSE2002 Farm
+      Building 78, University of Queensland
+
+                       ╱|、
+                     (˚ˎ 。7
+                      |、˜〵
+                      じしˍ,)ノ
+
+ ================================================
+ Item       Qty       Price (ea.)      Subtotal
+ ------------------------------------------------
+ egg       3         $0.50            $1.50
+ milk      2         $4.40            $8.80
+ jam       1         $6.70            $6.70
+ ------------------------------------------------
+ Total:                  $17.00
+ ------------------------------------------------
+      Thank you for shopping with us, Jack!
+
+ ================================================
+ </pre></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Transaction.html#getReceipt()">getReceipt</a></code>&nbsp;in class&nbsp;<code><a href="Transaction.html" title="class in farm.sales.transaction">Transaction</a></code></dd>
 <dt>Returns:</dt>
-<dd>TODO: Write</dd>
+<dd>the styled receipt representation of this transaction</dd>
+<dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
+<dd>remember that sets and maps in Java <em>are not ordered.</em>
+ If you are using either of these to keep track of purchased product types (which is a
+ perfectly good idea!), you must ensure you find a way to control the order in which you
+ retrieve things from them.</dd>
 </dl>
 </section>
 </li>

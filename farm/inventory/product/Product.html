@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -98,9 +98,7 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">An abstract class representing an instance of a product.
  <p>
- Each product is a single instance of a specific item.
- <p>
- <b>Note: </b> You are to decide if each method in Product should be abstract or concrete. It is open for to decide your implementation.</div>
+ Each product is a single instance of a specific item.</div>
 <dl class="notes">
 <dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 </dl>
@@ -237,14 +235,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
-<div class="block">If two instances of product are equal to each other. Equality is defined by having the same barcode, base price, and quality.</div>
+<div class="block">If two instances of product are equal to each other. Equality is defined by having the same barcode, and quality.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>obj</code> - The object with which to compare</dd>
 <dt>Returns:</dt>
-<dd>true if the other object is a product with the same barcode base price, and quality as the current product.</dd>
+<dd>true iff the other object is a product with the same barcode, and quality as the current product.</dd>
 </dl>
 </section>
 </li>

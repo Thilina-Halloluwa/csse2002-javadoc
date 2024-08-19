@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -93,7 +93,12 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ReceiptPrinter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Utility class for pretty-printing a transaction as a receipt. 
- Essentially a wrapper around an unusually complex toString, to avoid clutter.</div>
+ Essentially a wrapper around an unusually complex toString, to avoid clutter. 
+ <br>
+ Please note that there is absolutely no requirement for you to understand the private methods 
+ used in this class, so long as you can call the public methods with the correct arguments, 
+ which you should be able to do from looking at the Javadocs alone. You are of course more than
+ welcome to poke around in the helper methods if you are <em>curious,</em> but you are not expected to.</div>
 <dl class="notes">
 <dt><span style="color: #6244BB"><i>(provided)</i></span></dt>
 </dl>
@@ -127,7 +132,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createActiveReceipt()" class="member-name-link">createActiveReceipt</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates a receipt for a transaction that has not been finalised yet.</div>
+<div class="block">Creates a placeholder receipt for a transaction that has not been finalised yet and 
+ therefore cannot be used to generate a true receipt.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)" class="member-name-link">createReceipt</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;headings,
@@ -135,7 +141,8 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;total,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customerName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">createReceipt</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;headings,
@@ -144,7 +151,8 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customerName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;totalSaved)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.</div>
 </div>
 </div>
 </div>
@@ -178,21 +186,60 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="createActiveReceipt()">
+<h3>createActiveReceipt</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">createActiveReceipt</span>()</div>
+<div class="block">Creates a placeholder receipt for a transaction that has not been finalised yet and 
+ therefore cannot be used to generate a true receipt.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the placeholder receipt to display.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)">
 <h3>createReceipt</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">createReceipt</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;headings,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;&nbsp;entries,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;total,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customerName)</span></div>
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.
+ <p>
+ The method works by accepting provided string components and placing them in the appropriate
+ locations to create the final receipt. Specifically, these components should be provided as follows:
+ <ol>
+     <li><strong>Headings:</strong> Provide the headings to be displayed at the top of the 'purchases' section 
+     of the receipt, in the order (from left to right) in which they should appear on the receipt. For example, 
+     if a headings list is provided beginning with "Name", then the leftmost heading of the products section
+     will be "Name". All headings will always appear on the same line.</li>
+     <li><strong>Entries:</strong> Provide a list of the entries to be displayed in the body of the 'purchases' section, 
+     beneath the provided headings. Each entry should be a list of strings, with each item in the list 
+     being the piece of information corresponding to the heading at the same index.
+     <br>
+     For example, if the first heading in the headings list is "Name", and the first list in the entries list 
+     is ["Milk", "$4.40"], then "Milk" is the piece of information corresponding to the "Name" heading in the first entry.
+     <br>
+     Each entry occupies its own line, unless that entry contains more items than there are headings; in this case, 
+     the entry 'wraps around' to the next line. For example, if there are two headings and some entry contains three items, 
+     then the third string in that entry would instead be shown at the start of the <em>next</em> line.
+     </li>
+     <li><strong>Total:</strong> The string to be displayed as the total cost of the whole transaction.</li>
+     <li><strong>Customer name:</strong> The string to be displayed as the customer's name.</li>
+ </ol>
+ Note: This method makes no changes to the <em>formatting of any of the supplied strings.</em>
+ All supplied strings must already be in the format in which they are to be displayed.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>headings</code> - headings to display.</dd>
-<dd><code>entries</code> - the items for which to display information</dd>
-<dd><code>total</code> - total price</dd>
-<dd><code>customerName</code> - customer associated with the transaction</dd>
+<dd><code>headings</code> - the headings to be shown at the top of all purchases listed on the receipt</dd>
+<dd><code>entries</code> - the entries to be displayed in the purchases section of the receipt. Each
+                entry is a list of strings that will be displayed in the same column as the 
+                headings at the corresponding index of the headings list.</dd>
+<dd><code>total</code> - the total price reported on the receipt.</dd>
+<dd><code>customerName</code> - the name of the customer reported on the receipt.</dd>
 <dt>Returns:</dt>
-<dd>String representation of the receipt</dd>
+<dd>the styled receipt representation of the provided transaction information</dd>
 </dl>
 </section>
 </li>
@@ -204,27 +251,44 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;total,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customerName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;totalSaved)</span></div>
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.
+ <p>
+ The method works by accepting provided string components and placing them in the appropriate
+ locations to create the final receipt. Specifically, these components should be provided as follows:
+ <ol>
+     <li><strong>Headings:</strong> Provide the headings to be displayed at the top of the 'purchases' section 
+     of the receipt, in the order (from left to right) in which they should appear on the receipt. For example, 
+     if a headings list is provided beginning with "Name", then the leftmost heading of the products section
+     will be "Name". All headings will always appear on the same line.</li>
+     <li><strong>Entries:</strong> Provide a list of the entries to be displayed in the body of the 'purchases' section, 
+     beneath the provided headings. Each entry should be a list of strings, with each item in the list 
+     being the piece of information corresponding to the heading at the same index.
+     <br>
+     For example, if the first heading in the headings list is "Name", and the first list in the entries list 
+     is ["Milk", "$4.40"], then "Milk" is the piece of information corresponding to the "Name" heading in the first entry.
+     <br>
+     Each entry occupies its own line, unless that entry contains more items than there are headings; in this case, 
+     the entry 'wraps around' to the next line. For example, if there are two headings and some entry contains three items, 
+     then the third string in that entry would instead be shown at the start of the <em>next</em> line.
+     </li>
+     <li><strong>Total:</strong> The string to be displayed as the total cost of the whole transaction.</li>
+     <li><strong>Customer name:</strong> The string to be displayed as the customer's name.</li>
+     <li><strong>Total saved:</strong> The string to be displayed as the total savings incurred from the whole transaction.</li>
+ </ol>
+ Note: This method makes no changes to the <em>formatting of any of the supplied strings.</em>
+ All supplied strings must already be in the format in which they are to be displayed.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>headings</code> - headings to display.</dd>
-<dd><code>entries</code> - the items for which to display information</dd>
-<dd><code>total</code> - total price</dd>
-<dd><code>customerName</code> - customer associated with the transaction</dd>
-<dd><code>totalSaved</code> - total amount saved through discounts</dd>
+<dd><code>headings</code> - the headings to be shown at the top of all purchases listed on the receipt</dd>
+<dd><code>entries</code> - the entries to be displayed in the purchases section of the receipt. Each
+                entry is a list of strings that will be displayed in the same column as the 
+                headings at the corresponding index of the headings list.</dd>
+<dd><code>total</code> - the total price reported on the receipt.</dd>
+<dd><code>customerName</code> - the name of the customer reported on the receipt.</dd>
+<dd><code>totalSaved</code> - the total savings reported on the receipt.</dd>
 <dt>Returns:</dt>
-<dd>String representation of the receipt</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="createActiveReceipt()">
-<h3>createActiveReceipt</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">createActiveReceipt</span>()</div>
-<div class="block">Creates a receipt for a transaction that has not been finalised yet.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the receipt to display.</dd>
+<dd>the styled receipt representation of the provided transaction information</dd>
 </dl>
 </section>
 </li>

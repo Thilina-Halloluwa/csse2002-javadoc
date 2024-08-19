@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -246,6 +246,8 @@ loadScripts(document, 'script');</script>
 <dd>The Customer iff they exist in the address book.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../core/CustomerNotFoundException.html" title="class in farm.core">CustomerNotFoundException</a></code> - If there is no customer matching the information in the address book.</dd>
+<dt>Requires:</dt>
+<dd>That the name is non-empty and has been stripped of its trailing whitespace and that the phone number is a positive number.</dd>
 <dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 </dl>
 </section>

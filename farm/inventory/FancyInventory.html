@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -97,7 +97,9 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FancyInventory</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Inventory.html" title="interface in farm.inventory">Inventory</a></span></div>
-<div class="block">A fancy inventory which stores products in stacks, enabling quantity information.</div>
+<div class="block">A fancy inventory which stores products in stacks, enabling quantity information.
+ <p>
+ Introduces the concept of performing operations on multiple Products, such as removing 4 Eggs.</div>
 <dl class="notes">
 <dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
 </dl>
@@ -219,13 +221,18 @@ implements <a href="Inventory.html" title="interface in farm.inventory">Inventor
 <h3>addProduct</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addProduct</span><wbr><span class="parameters">(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
  <a href="product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality,
- int&nbsp;quantity)</span></div>
+ int&nbsp;quantity)</span>
+                throws <span class="exceptions"><a href="../core/InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></span></div>
 <div class="block">Adds multiple of the product with corresponding barcode to the inventory.</div>
 <dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Inventory.html#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)">addProduct</a></code>&nbsp;in interface&nbsp;<code><a href="Inventory.html" title="interface in farm.inventory">Inventory</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>barcode</code> - the barcode of the product to add.</dd>
 <dd><code>quality</code> - the quality of added product.</dd>
 <dd><code>quantity</code> - the amount of the product to add.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../core/InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code></dd>
 </dl>
 </section>
 </li>
@@ -266,18 +273,23 @@ implements <a href="Inventory.html" title="interface in farm.inventory">Inventor
 <section class="detail" id="removeProduct(farm.inventory.product.data.Barcode,int)">
 <h3>removeProduct</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</span>&nbsp;<span class="element-name">removeProduct</span><wbr><span class="parameters">(<a href="product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
- int&nbsp;quantity)</span></div>
+ int&nbsp;quantity)</span>
+                            throws <span class="exceptions"><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
 <div class="block">Removes a given number of products with corresponding barcode from the inventory, choosing the highest quality products possible.
  <p>
  Removes the products with the highest quality first. That is, if the inventory contains two REGULAR Eggs and a GOLD Egg, and two Eggs are removed the returned list will contain a GOLD Egg and a REGULAR Egg.
  <p>
- If there are not enough of a given product inventory it will return as many of said product as possible. That is if someone attempts to remove five Eggs but the Inventory only has four, all four Eggs will be removed. i.e <code>removeProduct(Barcode.EGG, quantity).size() &lt;= quantity</code>.</div>
+ If there are not enough of a given product in the inventory it will return as many of said product as possible. That is if someone attempts to remove five Eggs but the Inventory only has four, all four Eggs will be removed. i.e <code>removeProduct(Barcode.EGG, quantity).size() &lt;= quantity</code>.</div>
 <dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Inventory.html#removeProduct(farm.inventory.product.data.Barcode,int)">removeProduct</a></code>&nbsp;in interface&nbsp;<code><a href="Inventory.html" title="interface in farm.inventory">Inventory</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>barcode</code> - The barcode of the product to be removed.</dd>
 <dd><code>quantity</code> - The total amount of the product to remove from the inventory.</dd>
 <dt>Returns:</dt>
 <dd>A list containing the removed product if it exists, else an empty list.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code></dd>
 </dl>
 </section>
 </li>

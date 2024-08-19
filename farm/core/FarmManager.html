@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -94,18 +94,19 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Controller class, coordinating information between the model and view/UI of the program.
  <p>
- Whilst a lot of the Manager has been provided to you there are five methods you need to implement to make it work.
+ <b>The FarmManager file is provided for you, please move it from outside the <code>src</code> into <code>src/farm/core</code> before beginning work on it.</b>
+ <br> The project won't compile if it is moved into place before Farm is ready.
+ <p>
+ Whilst a lot of the Manager has been provided to you there are four methods you need to implement to make it work.
  <br>
  Method stubs have been provided to ensure the code compiles and these methods have been made protected.
  <p>
  Whilst the majority of FarmManager is implemented in stage2, the concept of quantities isn't introduced till stage3, at which point the FarmManager will need to be extended.
  <p>
  Only edit the four methods defined in the JavaDoc that aren't tagged as provided, if you touch something else it may break the control loop.
- <br> These being: <a href="#addToInventory(java.lang.String)"><code>addToInventory(String)</code></a>, <a href="#addToInventory(java.lang.String,int)"><code>addToInventory(String, int)</code></a>, <a href="#createCustomer()"><code>createCustomer()</code></a>, <a href="#initiateTransaction(java.lang.String)"><code>initiateTransaction(String)</code></a>, <a href="#addToCart(java.util.List,int)"><code>addToCart(List, int)</code></a></div>
+ <br> These being: <a href="#addToInventory(java.lang.String)"><code>addToInventory(String)</code></a>, <a href="#addToInventory(java.lang.String,int)"><code>addToInventory(String, int)</code></a>, <a href="#createCustomer()"><code>createCustomer()</code></a>, <a href="#initiateTransaction(java.lang.String)"><code>initiateTransaction(String)</code></a>.</div>
 <dl class="notes">
-<dt><span style="color:#3B3B3B;font-size:1.2em;">Component of multiple stages. Complete the first stage and come back later</span></dt>
 <dt><span style="color:#F5D000;font-size:1.2em;">Component of Stage 2.</span></dt>
-<dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
 </dl>
 </section>
 <section class="summary">
@@ -143,36 +144,30 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToCart(java.util.List,int)" class="member-name-link">addToCart</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;cmdInput,
- int&nbsp;quantity)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToInventory(java.lang.String)" class="member-name-link">addToInventory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;productName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">This is a stage separation method designed to help the Manager compile without stage 3.</div>
+<div class="block">Adds a single product with corresponding name to the Farm's inventory.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToInventory(java.lang.String)" class="member-name-link">addToInventory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;productName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Adds a single  product with corresponding name to the Farm's inventory.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToInventory(java.lang.String,int)" class="member-name-link">addToInventory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;productName,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToInventory(java.lang.String,int)" class="member-name-link">addToInventory</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;productName,
  int&nbsp;quantity)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Adds a certain number of the given product with corresponding name to the Farm's inventory.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createCustomer()" class="member-name-link">createCustomer</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createCustomer()" class="member-name-link">createCustomer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Prompt the user to create a new customer and then save it to the farms address book for later usage.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateTransaction(java.lang.String)" class="member-name-link">initiateTransaction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;transactionType)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateTransaction(java.lang.String)" class="member-name-link">initiateTransaction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;transactionType)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Start a new transaction for the transaction manager to manage.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run()" class="member-name-link">run</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Begins the running of the UI and interprets user input to begin the appropriate mode.</div>
 </div>
 </div>
@@ -244,15 +239,20 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addToInventory(java.lang.String)">
 <h3>addToInventory</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToInventory</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;productName)</span></div>
-<div class="block">Adds a single  product with corresponding name to the Farm's inventory.
+<div class="block">Adds a single product with corresponding name to the Farm's inventory.
  <p>
- If the product is added successfully display the product add success message <a href="ShopFront.html#displayProductAddSuccess()"><code>ShopFront.displayProductAddSuccess()</code></a>.
+ All the products added should be of regular quality.
+ <p>
+ If the product is added successfully display the product add success message <a href="ShopFront.html#displayProductAddSuccess()"><code>ShopFront.displayProductAddSuccess()</code></a>
  <br>
- If the provided product name is invalid display the invalid product name message <a href="ShopFront.html#displayInvalidProductName()"><code>ShopFront.displayInvalidProductName()</code></a></div>
+ If the provided productName is invalid, that is not 'egg', 'milk', 'wool', or 'jam', display the product add failed message <a href="ShopFront.html#displayProductAddFailed(java.lang.String)"><code>ShopFront.displayProductAddFailed(String)</code></a>
+ with an appropriately corresponding message.
+ <br>
+ If an exception is thrown, display the product add failed message <a href="ShopFront.html#displayProductAddFailed(java.lang.String)"><code>ShopFront.displayProductAddFailed(String)</code></a>
+ with details of the problem as described in the exception message.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>productName</code> - the name of the product to add to the farm.</dd>
-<dt><span style="color:#F5D000;font-size:1.2em;">Component of Stage 2.</span></dt>
 <dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
 <dd>The correct product names are <code>"egg", "milk", "jam", and "wool"</code> <br> Is there something to help you?</dd>
 </dl>
@@ -269,12 +269,15 @@ loadScripts(document, 'script');</script>
  <p>
  If the product is added successfully display the product add success message <a href="ShopFront.html#displayProductAddSuccess()"><code>ShopFront.displayProductAddSuccess()</code></a>.
  <br>
- If the provided product name is invalid display the invalid product name message <a href="ShopFront.html#displayInvalidProductName()"><code>ShopFront.displayInvalidProductName()</code></a></div>
+ If the provided productName is invalid, that is not 'egg', 'milk', 'wool', or 'jam', display the product add failed message <a href="ShopFront.html#displayProductAddFailed(java.lang.String)"><code>ShopFront.displayProductAddFailed(String)</code></a>
+ with an appropriately corresponding message.
+ <br>
+ If an exception is thrown, display the product add failed message <a href="ShopFront.html#displayProductAddFailed(java.lang.String)"><code>ShopFront.displayProductAddFailed(String)</code></a>
+ with details of the problem as described in the exception message.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>productName</code> - the name of the product to add to the farm.</dd>
 <dd><code>quantity</code> - the amount of the product to add.</dd>
-<dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
 <dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
 <dd>The correct product names are <code>"egg", "milk", "jam", and "wool"</code> <br> Is there something to help you?</dd>
 </dl>
@@ -291,10 +294,6 @@ loadScripts(document, 'script');</script>
  If there is already a customer with the same details display the duplicate customer message. See <a href="ShopFront.html#displayDuplicateCustomer()"><code>ShopFront.displayDuplicateCustomer()</code></a>
  <p>
  If the phone number entered is not a valid number - that is, contains character that aren't digits such as "123a4" - display the invalid phone number message <a href="ShopFront.html#displayInvalidPhoneNumber()"><code>ShopFront.displayInvalidPhoneNumber()</code></a></div>
-<dl class="notes">
-<dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
-<dd>Remember: what makes a customer a duplicate?</dd>
-</dl>
 </section>
 </li>
 <li>
@@ -306,15 +305,15 @@ loadScripts(document, 'script');</script>
  <b>Type to transaction:</b>
  <br>&emsp; "-s" or "-specialsale" makes a <a href="../sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction"><code>SpecialSaleTransaction</code></a>
  <br>&emsp; "-c" or "-categorised" makes a <a href="../sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction"><code>CategorisedTransaction</code></a>
- <br>&emsp; anything else as a tage makes a <a href="../sales/transaction/Transaction.html" title="class in farm.sales.transaction"><code>Transaction</code></a>
+ <br>&emsp; anything else as a type makes a <a href="../sales/transaction/Transaction.html" title="class in farm.sales.transaction"><code>Transaction</code></a>
  <p>
  Steps to create a transaction in:
  <ol>
      <li>Prompt the user for the name of the customer doing the transaction. See <a href="ShopFront.html#promptForCustomerName()"><code>ShopFront.promptForCustomerName()</code></a></li>
      <li>Prompt the user for the customers phone number. See <a href="ShopFront.html#promptForCustomerNumber()"><code>ShopFront.promptForCustomerNumber()</code></a>
-          <ul><li>If the phone number is invalid - that is, contains character that aren't digits such as "123a4" - display the invalid phone number message and stop the process <a href="ShopFront.html#displayInvalidPhoneNumber()"><code>ShopFront.displayInvalidPhoneNumber()</code></a></li></ul></li>
+          <ul><li>If the phone number is invalid - that is, contains character that aren't digits such as "123a4" - display the invalid phone number message and return <a href="ShopFront.html#displayInvalidPhoneNumber()"><code>ShopFront.displayInvalidPhoneNumber()</code></a></li></ul></li>
      <li>Look up the customer in the farms address book with those details
-          <ul><li>If there is no corresponding customer with the details display the customer not found message and stop the process <a href="ShopFront.html#displayCustomerNotFound()"><code>ShopFront.displayCustomerNotFound()</code></a> </li></ul></li>
+          <ul><li>If there is no corresponding customer with the details display the customer not found message and return <a href="ShopFront.html#displayCustomerNotFound()"><code>ShopFront.displayCustomerNotFound()</code></a> </li></ul></li>
      <li>Create the appropriate transaction for the type passed in, as defined above, for the customer.
           <ul><li>If the transaction is SpecialSaleTransaction, prompt the user to get the discounts using <code>getDiscounts()</code> </li></ul></li>
      <li>Display the transaction start message. <a href="ShopFront.html#displayTransactionStart()"><code>ShopFront.displayTransactionStart()</code></a></li>
@@ -326,25 +325,6 @@ loadScripts(document, 'script');</script>
 <dd><code>transactionType</code> - the type of transaction to make</dd>
 <dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
 <dd>Be careful to follow the steps in the correct order.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="addToCart(java.util.List,int)">
-<h3>addToCart</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">addToCart</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;cmdInput,
- int&nbsp;quantity)</span>
-                 throws <span class="exceptions"><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a>,
-<a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
-<div class="block">This is a stage separation method designed to help the Manager compile without stage 3.
- <p>
- Keep the line commented out in this method until you have finished stage 3, at which point it can be re-added to introduce quantities.
- <p>
- You do not need to write any code in here just comment in the line when appropriate.</div>
-<dl class="notes">
-<dt>Throws:</dt>
-<dd><code><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code></dd>
-<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code></dd>
 </dl>
 </section>
 </li>

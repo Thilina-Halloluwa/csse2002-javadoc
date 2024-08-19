@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -95,10 +95,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Top-level model class responsible for storing and making updates to the data and
  smaller model entities that make up the internal state of a farm.</div>
 <dl class="notes">
-<dt><span style="color:#3B3B3B;font-size:1.2em;">Component of multiple stages. Complete the first stage and come back later</span></dt>
-<dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 <dt><span style="color:#F5D000;font-size:1.2em;">Component of Stage 2.</span></dt>
-<dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
 </dl>
 </section>
 <section class="summary">
@@ -111,13 +108,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(farm.inventory.Inventory)" class="member-name-link">Farm</a><wbr>(<a href="../inventory/Inventory.html" title="interface in farm.inventory">Inventory</a>&nbsp;inventory)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Creates a new farm instance with an inventory supplied.</div>
-</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(farm.inventory.Inventory,farm.customer.AddressBook)" class="member-name-link">Farm</a><wbr>(<a href="../inventory/Inventory.html" title="interface in farm.inventory">Inventory</a>&nbsp;inventory,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(farm.inventory.Inventory,farm.customer.AddressBook)" class="member-name-link">Farm</a><wbr>(<a href="../inventory/Inventory.html" title="interface in farm.inventory">Inventory</a>&nbsp;inventory,
  <a href="../customer/AddressBook.html" title="class in farm.customer">AddressBook</a>&nbsp;addressBook)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Creates a new farm instance with an inventory and address book supplied.</div>
 </div>
 </div>
@@ -137,13 +130,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToCart(farm.inventory.product.data.Barcode)" class="member-name-link">addToCart</a><wbr>(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Adds one of the given product type to the customer's shopping cart.</div>
+<div class="block">Attempts to add a single product of the given type to the customer's shopping cart.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToCart(farm.inventory.product.data.Barcode,int)" class="member-name-link">addToCart</a><wbr>(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
  int&nbsp;quantity)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Adds the specified number of the given product type to the customer's shopping cart.</div>
+<div class="block">Attempts to add the specified number of products of the given type to the customer's shopping
+ cart.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkout()" class="member-name-link">checkout</a>()</code></div>
@@ -169,7 +163,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastReceipt()" class="member-name-link">getLastReceipt</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves the string representation of the most recent transaction.</div>
+<div class="block">Retrieves the receipt associated with the most recent transaction.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../sales/TransactionHistory.html" title="class in farm.sales">TransactionHistory</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTransactionHistory()" class="member-name-link">getTransactionHistory</a>()</code></div>
@@ -195,15 +189,14 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stockProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality)" class="member-name-link">stockProduct</a><wbr>(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
  <a href="../inventory/product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">TODO @ali does this method get used at any point? do they need it?? is it just the stage 1 version
- Adds a product to the inventory.</div>
+<div class="block">Adds a single product of the specified type and quality to the farm's inventory.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stockProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">stockProduct</a><wbr>(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
  <a href="../inventory/product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality,
  int&nbsp;quantity)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Adds the specified number of a product type to the inventory.</div>
+<div class="block">Adds some quantity of products of the specified type and quality to the farm's inventory.</div>
 </div>
 </div>
 </div>
@@ -222,17 +215,6 @@ loadScripts(document, 'script');</script>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="&lt;init&gt;(farm.inventory.Inventory)">
-<h3>Farm</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Farm</span><wbr><span class="parameters">(<a href="../inventory/Inventory.html" title="interface in farm.inventory">Inventory</a>&nbsp;inventory)</span></div>
-<div class="block">Creates a new farm instance with an inventory supplied.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>inventory</code> - The inventory through which access to the farm's stock is provisioned.</dd>
-</dl>
-</section>
-</li>
 <li>
 <section class="detail" id="&lt;init&gt;(farm.inventory.Inventory,farm.customer.AddressBook)">
 <h3>Farm</h3>
@@ -319,7 +301,6 @@ loadScripts(document, 'script');</script>
 <li><a href="../customer/Customer.html#equals(java.lang.Object)"><code>Customer.equals(Object)</code></a></li>
 </ul>
 </dd>
-<dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 </dl>
 </section>
 </li>
@@ -327,17 +308,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="stockProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality)">
 <h3>stockProduct</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stockProduct</span><wbr><span class="parameters">(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
- <a href="../inventory/product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality)</span>
-                  throws <span class="exceptions"><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></span></div>
-<div class="block">TODO @ali does this method get used at any point? do they need it?? is it just the stage 1 version
- Adds a product to the inventory.</div>
+ <a href="../inventory/product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality)</span></div>
+<div class="block">Adds a single product of the specified type and quality to the farm's inventory.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>barcode</code> - the product type to add to the inventory.</dd>
-<dd><code>quality</code> - the quality of the product to add to hte inventory.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code> - todo when does it throw? not super sure how these two interact</dd>
-<dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
+<dd><code>quality</code> - the quality of the product to add to the inventory.</dd>
 </dl>
 </section>
 </li>
@@ -348,15 +324,22 @@ loadScripts(document, 'script');</script>
  <a href="../inventory/product/data/Quality.html" title="enum class in farm.inventory.product.data">Quality</a>&nbsp;quality,
  int&nbsp;quantity)</span>
                   throws <span class="exceptions"><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></span></div>
-<div class="block">Adds the specified number of a product type to the inventory.</div>
+<div class="block">Adds some quantity of products of the specified type and quality to the farm's inventory.
+ <p>
+ If quantity is less than 1, an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link"><code>IllegalArgumentException</code></a> should be thrown with the message:
+ <p>
+ <pre style="color:#00CC00">"Quantity must be at least 1."</pre>
+ <p>
+ Only <a href="../inventory/FancyInventory.html" title="class in farm.inventory"><code>FancyInventory</code></a> inventories support adding more than one product at a time.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>barcode</code> - the product type to add.</dd>
-<dd><code>quality</code> - the quality of the product to add.</dd>
-<dd><code>quantity</code> - the number of the product to add.</dd>
+<dd><code>barcode</code> - the product type to add to the inventory.</dd>
+<dd><code>quality</code> - the quality of the product to add to the inventory.</dd>
+<dd><code>quantity</code> - the number of products to add to the inventory.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code> - if an invalid quantity is provided, or if FancyInventory is not in use.</dd>
-<dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if a negative quantity is provided.</dd>
+<dd><code><a href="InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></code> - if the quantity is greater than 1 when a
+ FancyInventory is not in use.</dd>
 </dl>
 </section>
 </li>
@@ -368,9 +351,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the provided transaction as the current ongoing transaction.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>transaction</code> - the transaction to set as active.</dd>
+<dd><code>transaction</code> - the transaction to set as ongoing.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if the customer associated with transaction does not exist in the addressbook.</dd>
+<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if the farm's transaction manager rejects the request 
+ to begin managing this transaction.</dd>
+<dt>Requires:</dt>
+<dd>the customer associated with transaction exists in the farm's addressbook.</dd>
 </dl>
 </section>
 </li>
@@ -379,16 +365,25 @@ loadScripts(document, 'script');</script>
 <h3>addToCart</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">addToCart</span><wbr><span class="parameters">(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode)</span>
               throws <span class="exceptions"><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
-<div class="block">Adds one of the given product type to the customer's shopping cart.</div>
+<div class="block">Attempts to add a single product of the given type to the customer's shopping cart.
+ <br>
+ Method attempts to retrieve a product from the farm's inventory and register it as a pending 
+ purchase via the farm's transaction manager, then reports the number of products
+ successfully
+ added (for this method, this will always be either 0 or 1).
+ <p>
+ If no transaction is ongoing, a <a href="FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> should be thrown with the message:
+ <p>
+ <pre style="color:#00CC00">"Cannot add to cart when no customer has started shopping."</pre>
+ <p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>barcode</code> - the product type to add.</dd>
 <dt>Returns:</dt>
-<dd>the number of products successully added to the cart.
- i.e. if none of the product exists in the inventory, this will return 0.</dd>
+<dd>the number of products successfully added to the cart.
+ i.e. if no products of this type exist in the inventory, this method will return 0.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if no ongoing transaction can be found.
- TODO @ali same here, not sure how you want to document the overloaded stuff when its different stages</dd>
+<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if no transaction is ongoing.</dd>
 </dl>
 </section>
 </li>
@@ -398,18 +393,38 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">addToCart</span><wbr><span class="parameters">(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;barcode,
  int&nbsp;quantity)</span>
               throws <span class="exceptions"><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
-<div class="block">Adds the specified number of the given product type to the customer's shopping cart.
- If inventory does not contain enough stock, adds as many products as possible to the cart.
- Note: in stages 1 and 2, this will always return 0 or 1.</div>
+<div class="block">Attempts to add the specified number of products of the given type to the customer's shopping
+ cart.
+ <br>
+ Method attempts to retrieve the requested products from the farm's inventory and registers 
+ them as pending purchases via the farm's transaction manager, then reports the number of 
+ products successfully added. If the inventory does not contain enough stock, adds as many 
+ products as possible to the cart. 
+ <p>
+ If no transaction is ongoing, a <a href="FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> should be thrown with the message:
+ <p>
+ <pre style="color:#00CC00">"Cannot add to cart when no customer has started shopping."</pre>
+ <p>
+ If quantity is less than 1, a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link"><code>IllegalArgumentException</code></a> should be thrown with the message:
+ <p>
+ <pre style="color:#00CC00">"Quantity must be at least 1."</pre>
+ <p>
+ Only <a href="../inventory/FancyInventory.html" title="class in farm.inventory"><code>FancyInventory</code></a> inventories support purchasing more than one product at a time.
+ If the farm's inventory is only Basic, the quantity must not be more than 1; otherwise,
+ a <a href="FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> should be thrown with the message:
+ <p>
+ <pre style="color:#00CC00">"Current inventory is not fancy enough. Please purchase products one at a time."</pre>
+ <p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>barcode</code> - the product type to add.</dd>
-<dd><code>quantity</code> - the number of the product to add.</dd>
+<dd><code>quantity</code> - the number of products to add.</dd>
 <dt>Returns:</dt>
-<dd>the number of the product successfully added to the cart.</dd>
+<dd>the number of products successfully added to the cart.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if no ongoing transaction can be found, negative quantity entered, or multiple items added to a basic inventory.</dd>
-<dt><span style="color:#F55600;font-size:1.2em;">Component of Stage 3.</span></dt>
+<dd><code><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - if no transaction is ongoing, or if the quantity is
+ greater than 1 when a FancyInventory is not in use.</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if a quantity less than 1 is entered.</dd>
 </dl>
 </section>
 </li>
@@ -418,8 +433,10 @@ loadScripts(document, 'script');</script>
 <h3>checkout</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">checkout</span>()
                  throws <span class="exceptions"><a href="FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
-<div class="block">Closes the ongoing transaction. If items are purchased within the transaction, stores the transaction in transaction history.
- Note: checking out an empty cart is more akin to putting the cart back in the store, hence we do not want this recorded in the transaction history.</div>
+<div class="block">Closes the ongoing transaction. If items have been purchased in this transaction, records the transaction in the farm's history.
+ <br>
+ Note: checking out an empty cart is more akin to putting the cart back in the store, and thus in this case
+ such transactions should not be recorded in the farm's history, but no exception should be thrown.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>true iff the finalised transaction contained products.</dd>
@@ -432,10 +449,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getLastReceipt()">
 <h3>getLastReceipt</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLastReceipt</span>()</div>
-<div class="block">Retrieves the string representation of the most recent transaction.</div>
+<div class="block">Retrieves the receipt associated with the most recent transaction. See <a href="../sales/transaction/Transaction.html#getReceipt()"><code>Transaction.getReceipt()</code></a></div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the string representation (receipt) of the most recent transaction.</dd>
+<dd>the receipt associated with the most recent transaction.</dd>
 </dl>
 </section>
 </li>

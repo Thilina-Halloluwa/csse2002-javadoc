@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -138,17 +138,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrossEarnings()" class="member-name-link">getGrossEarnings</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates the gross earnings, total income, from all transactions.</div>
+<div class="block">Calculates the gross earnings, i.e.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrossEarnings(farm.inventory.product.data.Barcode)" class="member-name-link">getGrossEarnings</a><wbr>(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates the gross earnings from all sales of a particular product type.</div>
+<div class="block">Calculates the gross earnings, i.e.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHighestGrossingTransaction()" class="member-name-link">getHighestGrossingTransaction</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves the transaction with the highest gross earnings.</div>
+<div class="block">Retrieves the transaction with the highest gross earnings, i.e.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastTransaction()" class="member-name-link">getLastTransaction</a>()</code></div>
@@ -214,14 +214,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="recordTransaction(farm.sales.transaction.Transaction)">
 <h3>recordTransaction</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordTransaction</span><wbr><span class="parameters">(<a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a>&nbsp;transaction)</span>
-                       throws <span class="exceptions"><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recordTransaction</span><wbr><span class="parameters">(<a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a>&nbsp;transaction)</span></div>
 <div class="block">Adds the given transaction to the record of all past transactions.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>transaction</code> - the transaction to add to the record.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - //TODO??</dd>
+<dt>Requires:</dt>
+<dd>the transaction to be recorded has been finalised</dd>
 </dl>
 </section>
 </li>
@@ -240,10 +239,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getGrossEarnings()">
 <h3>getGrossEarnings</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getGrossEarnings</span>()</div>
-<div class="block">Calculates the gross earnings, total income, from all transactions.</div>
+<div class="block">Calculates the gross earnings, i.e. total income, from all transactions.
+ <p>
+ Total income refers to the sum of all totals reported by each individual completed 
+ transaction stored in the history, as calculated by that particular transaction's 
+ <a href="transaction/Transaction.html#getTotal()"><code>Transaction.getTotal()</code></a>; if the history contains transaction instances that 
+ calculate their totals in a particular manner, such as <a href="transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction"><code>SpecialSaleTransaction</code></a>, 
+ it should nonetheless use the total exactly as it is reported by that instance. 
+ <p>For example, suppose a particular <a href="transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction"><code>SpecialSaleTransaction</code></a> reports its total as 
+ 150c because a 50c discount has been applied to the original purchase price of 200c. This 
+ method should add the reported 150c total to the sum of gross earnings, not the undiscounted
+ 200c, because that is the total reported by that particular transaction.
+ <p><em>Note: returns the calculated total in integer cents.</em></div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the gross earnings from all transactions in history.</dd>
+<dd>the gross earnings from all transactions in history, in cents.</dd>
 </dl>
 </section>
 </li>
@@ -251,12 +261,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getGrossEarnings(farm.inventory.product.data.Barcode)">
 <h3>getGrossEarnings</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getGrossEarnings</span><wbr><span class="parameters">(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</span></div>
-<div class="block">Calculates the gross earnings from all sales of a particular product type.</div>
+<div class="block">Calculates the gross earnings, i.e. total income, from all sales of a particular product type.
+ <p>
+ Total income is as defined in <a href="#getGrossEarnings()"><code>getGrossEarnings()</code></a>.
+ <p><em>Note: returns the calculated total in integer cents.</em></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - the Barcode of the item of interest.</dd>
 <dt>Returns:</dt>
-<dd>the gross earnings from all sales of the product type.</dd>
+<dd>the gross earnings from all sales of the product type, in cents.</dd>
 </dl>
 </section>
 </li>
@@ -299,7 +312,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getHighestGrossingTransaction()">
 <h3>getHighestGrossingTransaction</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></span>&nbsp;<span class="element-name">getHighestGrossingTransaction</span>()</div>
-<div class="block">Retrieves the transaction with the highest gross earnings. If there are multiple return the one that first was recorded.</div>
+<div class="block">Retrieves the transaction with the highest gross earnings, i.e. reported total. If there are multiple return the one that first was recorded.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the transaction with the highest gross earnings.</dd>
@@ -324,10 +337,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getAverageSpendPerVisit()">
 <h3>getAverageSpendPerVisit</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getAverageSpendPerVisit</span>()</div>
-<div class="block">Calculates the average amount spent by customers across all transactions.</div>
+<div class="block">Calculates the average amount spent by customers across all transactions.
+ <p><em>Note: returns the calculated average price in cents, but as a double, 
+ since it is possible that the average may not be a round number of cents. For example,
+ if the total amount earned is 1100c and the total number of transactions is 3, then the 
+ average spend per visit is ~366.6666666666667c.</em>
+ You do not need to return the result at a particular float precision or control the number 
+ of decimal places, so long as it is accurate to at least the first three decimal places. 
+ If you are rounding the result, ensure your rounding does not affect these places. 
+ If there have been no products sold, return 0.0d.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the average amount spent overall.</dd>
+<dd>the average amount spent overall, in cents (with decimals).</dd>
 </dl>
 </section>
 </li>
@@ -335,12 +356,20 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getAverageProductDiscount(farm.inventory.product.data.Barcode)">
 <h3>getAverageProductDiscount</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getAverageProductDiscount</span><wbr><span class="parameters">(<a href="../inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a>&nbsp;type)</span></div>
-<div class="block">Calculates the average amount a product has been discounted by, across all sales of that product.</div>
+<div class="block">Calculates the average amount a product has been discounted by, across all sales of that product.
+ <p><em>Note: returns the calculated average discount for this product type in cents, but as a
+ double, since it is possible that the average may not be a round number of cents. For example,
+ if the total amount earned is 1100c and the total number of transactions is 3, then the 
+ average spend per visit is ~366.6666666666667c.</em>
+ You do not need to return the result at a particular float precision or control the number 
+ of decimal places, so long as it is accurate to at least the first three decimal places. 
+ If you are rounding the result, ensure your rounding does not affect these places. 
+ If there have been no products sold, return 0.0d.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - identifier of the product of interest.</dd>
 <dt>Returns:</dt>
-<dd>the average discount for the product.</dd>
+<dd>the average discount for the product, in cents (with decimals).</dd>
 <dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
 <dd>Where do discounts come in?</dd>
 </dl>

@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -96,13 +96,16 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Transaction</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">A transaction that keeps track of what was purchased and by whom.
+<div class="block">Transactions keeps track of what items are to be (or have been) purchased and by whom.
  <p>
- A transaction has an associated customer and thus their cart to keep track of active purchases.
+ This is a very basic and vanilla transaction that adds things in the order they were purchased,
+ and displays them in the resulting receipt in a basic list following that order.
  <p>
- A transaction exists in either one of two states. Finalised where it is no longer open for modification and instead represents a past sale that has been completed and receipt generated. Or active, where products can be actively added to the customer cart and the receipt is not yet ready.
- <p>
- A very basic and vanilla transaction that adds things in the order they were purchased and displays them in a basic list.</div>
+ Transactions exists in one of two states: 
+ <ul>
+    <li><em>Active,</em> where products can be actively added to the customer cart and the receipt is not yet ready, or</li>
+    <li><em>Finalised,</em> where it is no longer open for modification, and instead represents a past sale that has been completed with a receipt generated.</li>
+ </ul></div>
 <dl class="notes">
 <dt><span style="color:#2E75B2;font-size:1.2em;">Component of Stage 1.</span></dt>
 </dl>
@@ -119,7 +122,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(farm.customer.Customer)" class="member-name-link">Transaction</a><wbr>(<a href="../../customer/Customer.html" title="class in farm.customer">Customer</a>&nbsp;customer)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new transaction for an associated customer.</div>
 </div>
 </div>
 </section>
@@ -138,7 +141,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finalise()" class="member-name-link">finalise</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Mark a transaction as finalised.</div>
+<div class="block">Mark a transaction as finalised and update the transaction's internal state accordingly.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../customer/Customer.html" title="class in farm.customer">Customer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAssociatedCustomer()" class="member-name-link">getAssociatedCustomer</a>()</code></div>
@@ -153,8 +156,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReceipt()" class="member-name-link">getReceipt</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">TODO: NOTES If the receipt is not finalised print active receipt <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a>
- Otherwise use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a> WHAT DO THEY PUT IN.</div>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="../ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotal()" class="member-name-link">getTotal</a>()</code></div>
@@ -164,12 +166,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isFinalised()" class="member-name-link">isFinalised</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Determines if the transaction is finalised (finished) or not.</div>
+<div class="block">Determines if the transaction is finalised (i.e. sale completed) or not.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns a string representation of this transaction.</div>
+<div class="block">Returns a string representation of this transaction and its current state.</div>
 </div>
 </div>
 </div>
@@ -192,7 +194,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(farm.customer.Customer)">
 <h3>Transaction</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Transaction</span><wbr><span class="parameters">(<a href="../../customer/Customer.html" title="class in farm.customer">Customer</a>&nbsp;customer)</span></div>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new transaction for an associated customer.
+ Transactions should always be active at the time of creation, i.e. a transaction cannot 
+ already be set to finalised upon instantiation.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>customer</code> - the customer who is starting the transaction (beginning to shop).</dd>
@@ -216,40 +220,27 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>the customer of the transaction.</dd>
 <dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
-<dd>a customer has a cart, not the transaction.</dd>
+<dd>a customer has a cart; the transaction does not.</dd>
 </dl>
-</section>
-</li>
-<li>
-<section class="detail" id="isFinalised()">
-<h3>isFinalised</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFinalised</span>()</div>
-<div class="block">Determines if the transaction is finalised (finished) or not.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>true iff the transaction is over, else false.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="finalise()">
-<h3>finalise</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">finalise</span>()</div>
-<div class="block">Mark a transaction as finalised.
- <p>
- This locks in all purchases added where no additional modification can be made.
- <p>
- When the transaction is finalised the associated customers cart must also be emptied. They've finished shopping so there should be nothing left in their cart when done.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getPurchases()">
 <h3>getPurchases</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../inventory/product/Product.html" title="class in farm.inventory.product">Product</a>&gt;</span>&nbsp;<span class="element-name">getPurchases</span>()</div>
-<div class="block">Retrieves all products associated with the transaction. This is either everything the bought if the transaction is finalised or the product currently in their cart.</div>
+<div class="block">Retrieves all products associated with the transaction.
+ <br>
+ If the transaction has been finalised, this is all products that were 'locked in' as 
+ final purchases at that time. If the transaction is instead still active, it is all products 
+ currently in the associated customer's cart.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>a list of all the products in the transaction.</dd>
+<dd>the list of purchases comprising the transaction.</dd>
+<dt>Ensures: </dt>
+<dd>the returned list is a shallow copy and cannot modify the original transaction</dd>
+<dt><span style="color:#51247A;"><i>Hint:</i></span></dt>
+<dd>once a customer has finished shopping, they can do whatever they like with their cart,
+ and may even come back with it another day; you should not expect that it continues to contain their final purchases.</dd>
 </dl>
 </section>
 </li>
@@ -265,19 +256,43 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="isFinalised()">
+<h3>isFinalised</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFinalised</span>()</div>
+<div class="block">Determines if the transaction is finalised (i.e. sale completed) or not.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true iff the transaction is over, else false.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="finalise()">
+<h3>finalise</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">finalise</span>()</div>
+<div class="block">Mark a transaction as finalised and update the transaction's internal state accordingly.
+ <br>
+ This locks in all pending purchases previously added, such that they are now treated as 
+ final purchases and no additional modification can be made, and empties the customer's cart.</div>
+</section>
+</li>
+<li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
-<div class="block">Returns a string representation of this transaction. The representation contain information about the customer, the transactions status, and the associated products.
+<div class="block">Returns a string representation of this transaction and its current state. 
+ The representation contains information about the customer, the transaction's status, and the associated products.
  <br>
- It is in the form <code>Transaction {Customer: &lt;customer&gt;, Status: &lt;status&gt;, Associated Products: &lt;products&gt;*}</code>
+ It is in the form <code>Transaction {Customer: &lt;customer&gt;, Status: &lt;status&gt;, Associated Products: &lt;products&gt;}</code>
  <p>
  <b>Example output/s: </b>
  <p>
- <pre style="color:#00CC00">"Transaction {Customer: James Smith | Phone Number: 12345678 | Address: 1st Street, Status: Ongoing, Associated Products: [egg: 50c *REGULAR*]}"</pre>
+ <pre style="color:#00CC00">"Transaction {Customer: James Smith | Phone Number: 12345678 | Address: 1st Street, Status: Active, Associated Products: [egg: 50c *REGULAR*]}"</pre>
  <pre style="color:#00CC00">"Transaction {Customer: Lauren Jame | Phone Number: 80145689 | Address: 2nd Street, Status: Finalised, Associated Products: []}"</pre>
+ <pre style="color:#00CC00">"Transaction {Customer: Alfred Bruce | Phone Number: 01010101 | Address: 3rd Street, Status: Finalised, Associated Products: [milk: 440c *IRIDIUM*, milk: 440c *GOLD*]}"</pre>
  <p>
- The status of the transaction is either <code>Ongoing</code> or <code>Finalised</code>.</div>
+ The status of the transaction must be either <code>Active</code> or <code>Finalised</code>.
+ The list of associated products should match that returned by <a href="#getPurchases()"><code>getPurchases()</code></a>.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
@@ -292,11 +307,67 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getReceipt()">
 <h3>getReceipt</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getReceipt</span>()</div>
-<div class="block">TODO: NOTES If the receipt is not finalised print active receipt <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a>
- Otherwise use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a> WHAT DO THEY PUT IN. HOW IS IT USED LOL?</div>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="../ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.
+ <p>
+ If the transaction has not been finalised, an accurate receipt cannot be printed; use
+ <a href="../ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a> to create an empty receipt reporting this.
+ <p>
+ Otherwise, use the <a href="../ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a>. 
+ The displayed transaction must match the following requirements:
+ <ul>
+     <li>The headings must be "Item" and "Price", in that order.</li>
+     <li>Each entry must be a list containing the display name and price of a purchased product.</li>
+     <li>The list of entries should be ordered such that products appear in the order they were purchased.</li>
+     <li>All prices shown on the receipt – that is, both prices per product and the overall
+     total - must be styled in standard price format rather than as cents,
+     e.g. 157c becomes $1.57.</li>
+ </ul>
+ <pre>
+ <code>
+ Customer jack = new Customer("Jack", 01234567, "1st Street");
+
+ jack.getCart().addProduct(new Egg());
+ jack.getCart().addProduct(new Milk());
+ jack.getCart().addProduct(new Jam());
+ jack.getCart().addProduct(new Egg());
+ jack.getCart().addProduct(new Milk());
+ jack.getCart().addProduct(new Egg());
+
+ Transaction transaction = new Transaction(jack);
+ transaction.finalise();
+
+ System.out.println(transaction.getReceipt());
+ </code>
+ </pre>    
+ <pre style="color:#00CC00">
+ ================================================
+                The CSSE2002 Farm
+      Building 78, University of Queensland
+
+                       ╱|、
+                     (˚ˎ 。7
+                      |、˜〵
+                      じしˍ,)ノ
+
+ ================================================
+ Item                                       Price
+ ------------------------------------------------
+ egg                                        $0.50
+ milk                                       $4.40
+ jam                                        $6.70
+ egg                                        $0.50
+ milk                                       $4.40
+ egg                                        $0.50
+ ------------------------------------------------
+ Total:                  $17.00
+ ------------------------------------------------
+      Thank you for shopping with us, Jack!
+
+ ================================================
+ </pre></div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>TODO: Write</dd>
+<dd>the styled receipt representation of this transaction</dd>
 </dl>
 </section>
 </li>

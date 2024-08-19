@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -145,7 +145,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOngoingTransaction(farm.sales.transaction.Transaction)" class="member-name-link">setOngoingTransaction</a><wbr>(<a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a>&nbsp;transaction)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the given transaction to be the one currently in progress, provided one is not already ongoing.</div>
+<div class="block">Begins managing the specified transaction, provided one is not already ongoing.</div>
 </div>
 </div>
 </div>
@@ -194,12 +194,14 @@ loadScripts(document, 'script');</script>
 <h3>setOngoingTransaction</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOngoingTransaction</span><wbr><span class="parameters">(<a href="transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a>&nbsp;transaction)</span>
                            throws <span class="exceptions"><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
-<div class="block">Sets the given transaction to be the one currently in progress, provided one is not already ongoing.
+<div class="block">Begins managing the specified transaction, provided one is not already ongoing.
  <p>
- Method receives a possible transaction and either starts managing it, or rejects it.</div>
+ Method either sets the given transaction to be the one currently in progress, and thus
+ to be managed by subsequent calls to the transaction manager whilst the transaction remains
+ ongoing, or rejects the request if a transaction is already ongoing.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>transaction</code> - the transaction to set to ongoing and keep track of.</dd>
+<dd><code>transaction</code> - the transaction to set as the manager's ongoing transaction.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - iff a transaction is already in progress.</dd>
 </dl>
@@ -212,12 +214,16 @@ loadScripts(document, 'script');</script>
                              throws <span class="exceptions"><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></span></div>
 <div class="block">Adds the given product to the cart of the customer associated with the current transaction.
  <p>
- The product can only be added if there is currently an ongoing transaction and that transaction has not already been finalised.</div>
+ The product can only be added if there is currently an ongoing transaction and that 
+ transaction has not already been finalised.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>product</code> - the product to add to customer's cart.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - iff there is no ongoing transaction or the transaction is finalised.</dd>
+<dd><code><a href="../core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></code> - iff there is no ongoing transaction or the transaction has already been finalised.</dd>
+<dt>Requires:</dt>
+<dd>the provided product is known to be valid for purchase, i.e. has been successfully 
+ retrieved from the farm's inventory</dd>
 </dl>
 </section>
 </li>

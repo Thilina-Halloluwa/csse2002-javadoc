@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -65,9 +65,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Adds a new product with corresponding barcode to the inventory.</div>
 </dd>
+<dt><a href="farm/inventory/BasicInventory.html#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">addProduct(Barcode, Quality, int)</a> - Method in class <a href="farm/inventory/BasicInventory.html" title="class in farm.inventory">BasicInventory</a></dt>
+<dd>
+<div class="block">Throws an <a href="farm/core/InvalidStockRequestException.html" title="class in farm.core"><code>InvalidStockRequestException</code></a> with the message:</div>
+</dd>
 <dt><a href="farm/inventory/FancyInventory.html#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">addProduct(Barcode, Quality, int)</a> - Method in class <a href="farm/inventory/FancyInventory.html" title="class in farm.inventory">FancyInventory</a></dt>
 <dd>
 <div class="block">Adds multiple of the product with corresponding barcode to the inventory.</div>
+</dd>
+<dt><a href="farm/inventory/Inventory.html#addProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">addProduct(Barcode, Quality, int)</a> - Method in interface <a href="farm/inventory/Inventory.html" title="interface in farm.inventory">Inventory</a></dt>
+<dd>
+<div class="block">Adds the specified quantity of the product with corresponding barcode to the inventory, 
+ provided that the implementing inventory supports adding multiple products at once.</div>
 </dd>
 <dt><a href="farm/sales/Cart.html#addProduct(farm.inventory.product.Product)" class="member-name-link">addProduct(Product)</a> - Method in class <a href="farm/sales/Cart.html" title="class in farm.sales">Cart</a></dt>
 <dd>
@@ -81,19 +90,16 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="farm/core/Farm.html#addToCart(farm.inventory.product.data.Barcode)" class="member-name-link">addToCart(Barcode)</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
-<div class="block">Adds one of the given product type to the customer's shopping cart.</div>
+<div class="block">Attempts to add a single product of the given type to the customer's shopping cart.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#addToCart(farm.inventory.product.data.Barcode,int)" class="member-name-link">addToCart(Barcode, int)</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
-<div class="block">Adds the specified number of the given product type to the customer's shopping cart.</div>
-</dd>
-<dt><a href="farm/core/FarmManager.html#addToCart(java.util.List,int)" class="member-name-link">addToCart(List&lt;String&gt;, int)</a> - Method in class <a href="farm/core/FarmManager.html" title="class in farm.core">FarmManager</a></dt>
-<dd>
-<div class="block">This is a stage separation method designed to help the Manager compile without stage 3.</div>
+<div class="block">Attempts to add the specified number of products of the given type to the customer's shopping
+ cart.</div>
 </dd>
 <dt><a href="farm/core/FarmManager.html#addToInventory(java.lang.String)" class="member-name-link">addToInventory(String)</a> - Method in class <a href="farm/core/FarmManager.html" title="class in farm.core">FarmManager</a></dt>
 <dd>
-<div class="block">Adds a single  product with corresponding name to the Farm's inventory.</div>
+<div class="block">Adds a single product with corresponding name to the Farm's inventory.</div>
 </dd>
 <dt><a href="farm/core/FarmManager.html#addToInventory(java.lang.String,int)" class="member-name-link">addToInventory(String, int)</a> - Method in class <a href="farm/core/FarmManager.html" title="class in farm.core">FarmManager</a></dt>
 <dd>
@@ -127,11 +133,12 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html" class="type-name-link" title="class in farm.sales.transaction">CategorisedTransaction</a> - Class in <a href="farm/sales/transaction/package-summary.html">farm.sales.transaction</a></dt>
 <dd>
-<div class="block">A transaction that keeps track of what was purchased and by whom.</div>
+<div class="block">A transaction type that allows products to be categorised by their types, not solely as 
+ isolated individual products.</div>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#%3Cinit%3E(farm.customer.Customer)" class="member-name-link">CategorisedTransaction(Customer)</a> - Constructor for class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
 <dd>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new categorised transaction for an associated customer.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#checkout()" class="member-name-link">checkout()</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
@@ -147,7 +154,8 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/ReceiptPrinter.html#createActiveReceipt()" class="member-name-link">createActiveReceipt()</a> - Static method in class <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales">ReceiptPrinter</a></dt>
 <dd>
-<div class="block">Creates a receipt for a transaction that has not been finalised yet.</div>
+<div class="block">Creates a placeholder receipt for a transaction that has not been finalised yet and 
+ therefore cannot be used to generate a true receipt.</div>
 </dd>
 <dt><a href="farm/core/FarmManager.html#createCustomer()" class="member-name-link">createCustomer()</a> - Method in class <a href="farm/core/FarmManager.html" title="class in farm.core">FarmManager</a></dt>
 <dd>
@@ -155,11 +163,13 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)" class="member-name-link">createReceipt(List&lt;String&gt;, List&lt;List&lt;String&gt;&gt;, String, String)</a> - Static method in class <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales">ReceiptPrinter</a></dt>
 <dd>
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.</div>
 </dd>
 <dt><a href="farm/sales/ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">createReceipt(List&lt;String&gt;, List&lt;List&lt;String&gt;&gt;, String, String, String)</a> - Static method in class <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales">ReceiptPrinter</a></dt>
 <dd>
-<div class="block">Creates a representation of a purchase by a customer for use in the CLI.</div>
+<div class="block">Creates a nicely formatted String representation of a finalised transaction by styling it 
+ as a paper receipt, used for displaying information about this transaction to the CLI.</div>
 </dd>
 <dt><a href="farm/customer/Customer.html" class="type-name-link" title="class in farm.customer">Customer</a> - Class in <a href="farm/customer/package-summary.html">farm.customer</a></dt>
 <dd>
@@ -204,9 +214,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Displays an invalid product name error message to the user.</div>
 </dd>
+<dt><a href="farm/core/ShopFront.html#displayProductAddFailed(java.lang.String)" class="member-name-link">displayProductAddFailed(String)</a> - Method in class <a href="farm/core/ShopFront.html" title="class in farm.core">ShopFront</a></dt>
+<dd>
+<div class="block">Displays a product adding failed message to the user with details of the problem.</div>
+</dd>
 <dt><a href="farm/core/ShopFront.html#displayProductAddSuccess()" class="member-name-link">displayProductAddSuccess()</a> - Method in class <a href="farm/core/ShopFront.html" title="class in farm.core">ShopFront</a></dt>
 <dd>
-<div class="block">Displays a produce added success message to the user.</div>
+<div class="block">Displays a product added success message to the user.</div>
 </dd>
 <dt><a href="farm/core/ShopFront.html#displayTransactionStart()" class="member-name-link">displayTransactionStart()</a> - Method in class <a href="farm/core/ShopFront.html" title="class in farm.core">ShopFront</a></dt>
 <dd>
@@ -214,7 +228,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/core/DuplicateCustomerException.html" class="type-name-link" title="class in farm.core">DuplicateCustomerException</a> - Exception Class in <a href="farm/core/package-summary.html">farm.core</a></dt>
 <dd>
-<div class="block">Thrown if a customer attempting to be added, when there is already a customer with those details.</div>
+<div class="block">Thrown if when attempting to add a customer, there is already an existing customer with those details.</div>
 </dd>
 <dt><a href="farm/core/DuplicateCustomerException.html#%3Cinit%3E()" class="member-name-link">DuplicateCustomerException()</a> - Constructor for exception class <a href="farm/core/DuplicateCustomerException.html" title="class in farm.core">DuplicateCustomerException</a></dt>
 <dd>
@@ -243,7 +257,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="farm/customer/Customer.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class <a href="farm/customer/Customer.html" title="class in farm.customer">Customer</a></dt>
 <dd>
-<div class="block">If two instances of customer are equal to each other.</div>
+<div class="block">Determines whether the provided object is equal to this customer instance.</div>
 </dd>
 <dt><a href="farm/inventory/product/Product.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class <a href="farm/inventory/product/Product.html" title="class in farm.inventory.product">Product</a></dt>
 <dd>
@@ -262,7 +276,7 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="farm/core/FailedTransactionException.html" class="type-name-link" title="class in farm.core">FailedTransactionException</a> - Exception Class in <a href="farm/core/package-summary.html">farm.core</a></dt>
 <dd>
-<div class="block">Thrown if a transaction is failed.</div>
+<div class="block">Thrown if a transaction failed.</div>
 </dd>
 <dt><a href="farm/core/FailedTransactionException.html#%3Cinit%3E()" class="member-name-link">FailedTransactionException()</a> - Constructor for exception class <a href="farm/core/FailedTransactionException.html" title="class in farm.core">FailedTransactionException</a></dt>
 <dd>
@@ -286,10 +300,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Top-level model class responsible for storing and making updates to the data and
  smaller model entities that make up the internal state of a farm.</div>
-</dd>
-<dt><a href="farm/core/Farm.html#%3Cinit%3E(farm.inventory.Inventory)" class="member-name-link">Farm(Inventory)</a> - Constructor for class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
-<dd>
-<div class="block">Creates a new farm instance with an inventory supplied.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#%3Cinit%3E(farm.inventory.Inventory,farm.customer.AddressBook)" class="member-name-link">Farm(Inventory, AddressBook)</a> - Constructor for class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
@@ -336,7 +346,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/transaction/Transaction.html#finalise()" class="member-name-link">finalise()</a> - Method in class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
-<div class="block">Mark a transaction as finalised.</div>
+<div class="block">Mark a transaction as finalised and update the transaction's internal state accordingly.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
@@ -409,7 +419,8 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#getDiscountAmount(farm.inventory.product.data.Barcode)" class="member-name-link">getDiscountAmount(Barcode)</a> - Method in class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
 <dd>
-<div class="block">Retrieves the discount amount for a particular product type.</div>
+<div class="block">Retrieves the discount percentage that will be applied for a particular product type, 
+ as an integer (e.g.</div>
 </dd>
 <dt><a href="farm/inventory/product/data/Barcode.html#getDisplayName()" class="member-name-link">getDisplayName()</a> - Method in enum class <a href="farm/inventory/product/data/Barcode.html" title="enum class in farm.inventory.product.data">Barcode</a></dt>
 <dd>
@@ -421,19 +432,19 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/TransactionHistory.html#getGrossEarnings()" class="member-name-link">getGrossEarnings()</a> - Method in class <a href="farm/sales/TransactionHistory.html" title="class in farm.sales">TransactionHistory</a></dt>
 <dd>
-<div class="block">Calculates the gross earnings, total income, from all transactions.</div>
+<div class="block">Calculates the gross earnings, i.e.</div>
 </dd>
 <dt><a href="farm/sales/TransactionHistory.html#getGrossEarnings(farm.inventory.product.data.Barcode)" class="member-name-link">getGrossEarnings(Barcode)</a> - Method in class <a href="farm/sales/TransactionHistory.html" title="class in farm.sales">TransactionHistory</a></dt>
 <dd>
-<div class="block">Calculates the gross earnings from all sales of a particular product type.</div>
+<div class="block">Calculates the gross earnings, i.e.</div>
 </dd>
 <dt><a href="farm/sales/TransactionHistory.html#getHighestGrossingTransaction()" class="member-name-link">getHighestGrossingTransaction()</a> - Method in class <a href="farm/sales/TransactionHistory.html" title="class in farm.sales">TransactionHistory</a></dt>
 <dd>
-<div class="block">Retrieves the transaction with the highest gross earnings.</div>
+<div class="block">Retrieves the transaction with the highest gross earnings, i.e.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#getLastReceipt()" class="member-name-link">getLastReceipt()</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
-<div class="block">Retrieves the string representation of the most recent transaction.</div>
+<div class="block">Retrieves the receipt associated with the most recent transaction.</div>
 </dd>
 <dt><a href="farm/sales/TransactionHistory.html#getLastTransaction()" class="member-name-link">getLastTransaction()</a> - Method in class <a href="farm/sales/TransactionHistory.html" title="class in farm.sales">TransactionHistory</a></dt>
 <dd>
@@ -453,11 +464,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#getPurchasedTypes()" class="member-name-link">getPurchasedTypes()</a> - Method in class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
 <dd>
-<div class="block">Retrieves all product types associated with the transaction.</div>
+<div class="block">Retrieves all unique product types of the purchases associated with the transaction.</div>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#getPurchaseQuantity(farm.inventory.product.data.Barcode)" class="member-name-link">getPurchaseQuantity(Barcode)</a> - Method in class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
 <dd>
-<div class="block">Retrieves the number of a particular product associated with the transaction.</div>
+<div class="block">Retrieves the number of products of a particular type associated with the transaction.</div>
 </dd>
 <dt><a href="farm/sales/transaction/Transaction.html#getPurchases()" class="member-name-link">getPurchases()</a> - Method in class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
@@ -465,28 +476,32 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#getPurchasesByType()" class="member-name-link">getPurchasesByType()</a> - Method in class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
 <dd>
-<div class="block">Retrieves all products associated with the transaction, grouped by type.</div>
+<div class="block">Retrieves all products associated with the transaction, grouped by their type.</div>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#getPurchaseSubtotal(farm.inventory.product.data.Barcode)" class="member-name-link">getPurchaseSubtotal(Barcode)</a> - Method in class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
 <dd>
-<div class="block">Determines the total price for the provided product type, associated with the transaction.</div>
+<div class="block">Determines the total price for the provided product type within this transaction.</div>
 </dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#getPurchaseSubtotal(farm.inventory.product.data.Barcode)" class="member-name-link">getPurchaseSubtotal(Barcode)</a> - Method in class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
 <dd>
-<div class="block">Determines the total (discounted) price for the provided product type, associated with the transaction.</div>
+<div class="block">Determines the total price for the provided product type within this transaction, with 
+ any specified discount applied as an integer percentage taken from the usual subtotal.</div>
 </dd>
 <dt><a href="farm/inventory/product/Product.html#getQuality()" class="member-name-link">getQuality()</a> - Method in class <a href="farm/inventory/product/Product.html" title="class in farm.inventory.product">Product</a></dt>
 <dd>
 <div class="block">Retrieve the product's quality.</div>
 </dd>
 <dt><a href="farm/sales/transaction/CategorisedTransaction.html#getReceipt()" class="member-name-link">getReceipt()</a> - Method in class <a href="farm/sales/transaction/CategorisedTransaction.html" title="class in farm.sales.transaction">CategorisedTransaction</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.</div>
+</dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#getReceipt()" class="member-name-link">getReceipt()</a> - Method in class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.</div>
+</dd>
 <dt><a href="farm/sales/transaction/Transaction.html#getReceipt()" class="member-name-link">getReceipt()</a> - Method in class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
-<div class="block">TODO: NOTES If the receipt is not finalised print active receipt <a href="farm/sales/ReceiptPrinter.html#createActiveReceipt()"><code>ReceiptPrinter.createActiveReceipt()</code></a>
- Otherwise use the <a href="farm/sales/ReceiptPrinter.html#createReceipt(java.util.List,java.util.List,java.lang.String,java.lang.String)"><code>ReceiptPrinter.createReceipt(List, List, String, String)</code></a> WHAT DO THEY PUT IN.</div>
+<div class="block">Converts the transaction into a formatted receipt for display, using the <a href="farm/sales/ReceiptPrinter.html" title="class in farm.sales"><code>ReceiptPrinter</code></a>.</div>
 </dd>
 <dt><a href="farm/inventory/FancyInventory.html#getStockedQuantity(farm.inventory.product.data.Barcode)" class="member-name-link">getStockedQuantity(Barcode)</a> - Method in class <a href="farm/inventory/FancyInventory.html" title="class in farm.inventory">FancyInventory</a></dt>
 <dd>
@@ -561,11 +576,6 @@ loadScripts(document, 'script');</script>
 <div class="block">Construct an exception in response to an invalid stock request with a message 
  describing the exception.</div>
 </dd>
-<dt><a href="farm/core/InvalidStockRequestException.html#%3Cinit%3E(java.lang.String,java.lang.Exception)" class="member-name-link">InvalidStockRequestException(String, Exception)</a> - Constructor for exception class <a href="farm/core/InvalidStockRequestException.html" title="class in farm.core">InvalidStockRequestException</a></dt>
-<dd>
-<div class="block">Construct an exception in response to an invalid stock request with a message describing 
- the exception and another exception as the base cause.</div>
-</dd>
 <dt><a href="farm/inventory/Inventory.html" class="type-name-link" title="interface in farm.inventory">Inventory</a> - Interface in <a href="farm/inventory/package-summary.html">farm.inventory</a></dt>
 <dd>
 <div class="block">An interface representing the base requirements for an Inventory.</div>
@@ -578,7 +588,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/transaction/Transaction.html#isFinalised()" class="member-name-link">isFinalised()</a> - Method in class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
-<div class="block">Determines if the transaction is finalised (finished) or not.</div>
+<div class="block">Determines if the transaction is finalised (i.e. sale completed) or not.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:J">J</h2>
@@ -601,9 +611,13 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
 <dt><a href="farm/Main.html#main(java.lang.String%5B%5D)" class="member-name-link">main(String[])</a> - Static method in class <a href="farm/Main.html" title="class in farm">Main</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Start the farm program.</div>
+</dd>
 <dt><a href="farm/Main.html" class="type-name-link" title="class in farm">Main</a> - Class in <a href="farm/package-summary.html">farm</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Execute the Farm MVP program.</div>
+</dd>
 <dt><a href="farm/Main.html#%3Cinit%3E()" class="member-name-link">Main()</a> - Constructor for class <a href="farm/Main.html" title="class in farm">Main</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="farm/inventory/product/Milk.html" class="type-name-link" title="class in farm.inventory.product">Milk</a> - Class in <a href="farm/inventory/product/package-summary.html">farm.inventory.product</a></dt>
@@ -623,8 +637,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
-<dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#populateReceiptEntry(farm.inventory.product.data.Barcode)" class="member-name-link">populateReceiptEntry(Barcode)</a> - Method in class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="farm/inventory/product/Product.html" class="type-name-link" title="class in farm.inventory.product">Product</a> - Class in <a href="farm/inventory/product/package-summary.html">farm.inventory.product</a></dt>
 <dd>
 <div class="block">An abstract class representing an instance of a product.</div>
@@ -677,9 +689,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes the first product with corresponding barcode from the inventory.</div>
 </dd>
+<dt><a href="farm/inventory/BasicInventory.html#removeProduct(farm.inventory.product.data.Barcode,int)" class="member-name-link">removeProduct(Barcode, int)</a> - Method in class <a href="farm/inventory/BasicInventory.html" title="class in farm.inventory">BasicInventory</a></dt>
+<dd>
+<div class="block">Throws an <a href="farm/core/FailedTransactionException.html" title="class in farm.core"><code>FailedTransactionException</code></a> with the message:</div>
+</dd>
 <dt><a href="farm/inventory/FancyInventory.html#removeProduct(farm.inventory.product.data.Barcode,int)" class="member-name-link">removeProduct(Barcode, int)</a> - Method in class <a href="farm/inventory/FancyInventory.html" title="class in farm.inventory">FancyInventory</a></dt>
 <dd>
 <div class="block">Removes a given number of products with corresponding barcode from the inventory, choosing the highest quality products possible.</div>
+</dd>
+<dt><a href="farm/inventory/Inventory.html#removeProduct(farm.inventory.product.data.Barcode,int)" class="member-name-link">removeProduct(Barcode, int)</a> - Method in interface <a href="farm/inventory/Inventory.html" title="interface in farm.inventory">Inventory</a></dt>
+<dd>
+<div class="block">Removes the given number of products with corresponding barcode from the inventory, provided that
+ the implementing inventory supports removing multiple products at once.</div>
 </dd>
 <dt><a href="farm/core/FarmManager.html#run()" class="member-name-link">run()</a> - Method in class <a href="farm/core/FarmManager.html" title="class in farm.core">FarmManager</a></dt>
 <dd>
@@ -706,7 +727,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/sales/TransactionManager.html#setOngoingTransaction(farm.sales.transaction.Transaction)" class="member-name-link">setOngoingTransaction(Transaction)</a> - Method in class <a href="farm/sales/TransactionManager.html" title="class in farm.sales">TransactionManager</a></dt>
 <dd>
-<div class="block">Sets the given transaction to be the one currently in progress, provided one is not already ongoing.</div>
+<div class="block">Begins managing the specified transaction, provided one is not already ongoing.</div>
 </dd>
 <dt><a href="farm/customer/Customer.html#setPhoneNumber(int)" class="member-name-link">setPhoneNumber(int)</a> - Method in class <a href="farm/customer/Customer.html" title="class in farm.customer">Customer</a></dt>
 <dd>
@@ -722,15 +743,18 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html" class="type-name-link" title="class in farm.sales.transaction">SpecialSaleTransaction</a> - Class in <a href="farm/sales/transaction/package-summary.html">farm.sales.transaction</a></dt>
 <dd>
-<div class="block">A transaction that keeps track of what was purchased and by whom.</div>
+<div class="block">A transaction type that builds on the functionality of a categorised transaction, allowing
+ store-wide discounts to be applied to all products of a nominated type.</div>
 </dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#%3Cinit%3E(farm.customer.Customer)" class="member-name-link">SpecialSaleTransaction(Customer)</a> - Constructor for class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
 <dd>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new special sale transaction for an associated customer, with an 
+ empty set of discounts (i.e.</div>
 </dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#%3Cinit%3E(farm.customer.Customer,java.util.Map)" class="member-name-link">SpecialSaleTransaction(Customer, Map&lt;Barcode, Integer&gt;)</a> - Constructor for class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
 <dd>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new special sale transaction for an associated customer, 
+ with a set of discounts to be applied to nominated product types on purchasing.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#startTransaction(farm.sales.transaction.Transaction)" class="member-name-link">startTransaction(Transaction)</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
@@ -738,12 +762,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="farm/core/Farm.html#stockProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality)" class="member-name-link">stockProduct(Barcode, Quality)</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
-<div class="block">TODO @ali does this method get used at any point? do they need it?? is it just the stage 1 version
- Adds a product to the inventory.</div>
+<div class="block">Adds a single product of the specified type and quality to the farm's inventory.</div>
 </dd>
 <dt><a href="farm/core/Farm.html#stockProduct(farm.inventory.product.data.Barcode,farm.inventory.product.data.Quality,int)" class="member-name-link">stockProduct(Barcode, Quality, int)</a> - Method in class <a href="farm/core/Farm.html" title="class in farm.core">Farm</a></dt>
 <dd>
-<div class="block">Adds the specified number of a product type to the inventory.</div>
+<div class="block">Adds some quantity of products of the specified type and quality to the farm's inventory.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
@@ -757,18 +780,20 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns a string representation of this product class.</div>
 </dd>
 <dt><a href="farm/sales/transaction/SpecialSaleTransaction.html#toString()" class="member-name-link">toString()</a> - Method in class <a href="farm/sales/transaction/SpecialSaleTransaction.html" title="class in farm.sales.transaction">SpecialSaleTransaction</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns a string representation of this transaction and its current state.</div>
+</dd>
 <dt><a href="farm/sales/transaction/Transaction.html#toString()" class="member-name-link">toString()</a> - Method in class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
-<div class="block">Returns a string representation of this transaction.</div>
+<div class="block">Returns a string representation of this transaction and its current state.</div>
 </dd>
 <dt><a href="farm/sales/transaction/Transaction.html" class="type-name-link" title="class in farm.sales.transaction">Transaction</a> - Class in <a href="farm/sales/transaction/package-summary.html">farm.sales.transaction</a></dt>
 <dd>
-<div class="block">A transaction that keeps track of what was purchased and by whom.</div>
+<div class="block">Transactions keeps track of what items are to be (or have been) purchased and by whom.</div>
 </dd>
 <dt><a href="farm/sales/transaction/Transaction.html#%3Cinit%3E(farm.customer.Customer)" class="member-name-link">Transaction(Customer)</a> - Constructor for class <a href="farm/sales/transaction/Transaction.html" title="class in farm.sales.transaction">Transaction</a></dt>
 <dd>
-<div class="block">Construct a new currently open active transaction for an associated customer.</div>
+<div class="block">Construct a new transaction for an associated customer.</div>
 </dd>
 <dt><a href="farm/sales/TransactionHistory.html" class="type-name-link" title="class in farm.sales">TransactionHistory</a> - Class in <a href="farm/sales/package-summary.html">farm.sales</a></dt>
 <dd>

@@ -21,7 +21,7 @@ loadScripts(document, 'script');</script>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
 <div class="flex-box">
-<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.0.0</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
+<header role="banner" class="flex-header"><div style="padding: 10px 30px; background-color: #51247A; color: white; font-variant: small-caps"> <h1>Farm<span style="float: right">v1.1.1</span></h1> <p>Programming in the Large --- Assignment 1, Semester 2, 2024</p></div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button>
@@ -134,7 +134,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">If two instances of customer are equal to each other.</div>
+<div class="block">Determines whether the provided object is equal to this customer instance.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAddress()" class="member-name-link">getAddress</a>()</code></div>
@@ -210,6 +210,8 @@ loadScripts(document, 'script');</script>
 <dd><code>name</code> - The name of the customer.</dd>
 <dd><code>phoneNumber</code> - The customer's phone number.</dd>
 <dd><code>address</code> - The address of the customer.</dd>
+<dt>Requires:</dt>
+<dd>That the name and address is non-empty.<br>That the phone number is a positive number.<br>That the name and address are stripped of trailing whitespaces.</dd>
 </dl>
 </section>
 </li>
@@ -240,6 +242,8 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>newName</code> - The new name to override the current name.</dd>
+<dt>Requires:</dt>
+<dd>That the name is non-empty and that its stripped of trailing whitespaces.</dd>
 </dl>
 </section>
 </li>
@@ -262,6 +266,8 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>newPhone</code> - The phone number to override the current phone number.</dd>
+<dt>Requires:</dt>
+<dd>The phone number is a positive number.</dd>
 </dl>
 </section>
 </li>
@@ -284,6 +290,8 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>newAddress</code> - The address to override the current address.</dd>
+<dt>Requires:</dt>
+<dd>That the address is non-empty and that its stripped of trailing whitespaces.</dd>
 </dl>
 </section>
 </li>
@@ -307,6 +315,7 @@ loadScripts(document, 'script');</script>
  <p>
  <b>Example output: </b>
  <p>
+ <pre><code>new Customer("James Smith", 12345632, "1 Second Street").toString()</code></pre>
  <pre style="color:#00CC00">"Name: James Smith | Phone Number: 12345632 | Address: 1 Second Street"</pre></div>
 <dl class="notes">
 <dt>Overrides:</dt>
@@ -320,7 +329,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
-<div class="block">If two instances of customer are equal to each other. Equality is defined by having the same phone number and name.</div>
+<div class="block">Determines whether the provided object is equal to this customer instance. 
+ <br>
+ For customers, equality is defined by having the same phone number and name; addresses are 
+ not considered.
+ <br><strong>Note that customer names are <em>case sensitive.</em></strong> That is,
+ a customer called "Emily Lee" is <em>not</em> equal to a customer called "emily lee".</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
